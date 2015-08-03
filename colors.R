@@ -26,6 +26,7 @@ colorData <- data.frame("COLOR" = colorRaw$COLOR,
                         "B" = b)
 
 library(scatterplot3d)
+
 with(colorData, {
    scatterplot3d(         x = 100 * R / 255,
                           y = 100 * G / 255,
@@ -42,16 +43,15 @@ with(colorData, {
                        zlab = "Blue",
                     scale.y = 0.9, 
                       angle = 225,
-                # x.ticklabs = c(0, 85, 170, 255),
-                # y.ticklabs = c(85, 170, 255),
-                # z.ticklabs = c(0, 85, 170, 255),
+                 x.ticklabs = c(0, 51, 102, 153, 204, 255),
+                 y.ticklabs = c(0, 51, 102, 153, 204, 255),
+                 z.ticklabs = c(0, 51, 102, 153, 204, 255),
                        type = "h",
                    col.axis = "grey",
                    font.lab = 1,
                 cex.symbols = par("cex"),
                    cex.axis = 0.7 * par("cex.axis"),
                     cex.lab = 0.9 * par("cex.lab"),
-                  lty.hplot = 1
-)
+                  lty.hplot = 1)
 }
 )
