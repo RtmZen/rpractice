@@ -13,19 +13,19 @@ rankingRaw <- data.frame(dat[4:103, 1],
 names(rankingRaw) <- dat[3, c(1, 2, 4, 5)]
 head(rankingRaw)
 
-month <- sapply(strsplit(as.character(ttRanking[, 1]),
+month <- sapply(strsplit(as.character(rankingRaw[, 1]),
                          split = " "),
                 "[",
                 1)
-year <- as.numeric(sapply(strsplit(as.character(ttRanking[, 2]),
+year <- as.numeric(sapply(strsplit(as.character(rankingRaw[, 2]),
                                    split = "A"),
                           "[",
                           1))
-ranking <- as.numeric(sapply(strsplit(as.character(ttRanking[, 3]),
+ranking <- as.numeric(sapply(strsplit(as.character(rankingRaw[, 3]),
                                       split = "A"),
                              "[",
                              1))
-points <- as.numeric(sapply(strsplit(as.character(ttRanking[, 4]),
+points <- as.numeric(sapply(strsplit(as.character(rankingRaw[, 4]),
                                      split = "A"),
                             "[",
                             1))
@@ -36,6 +36,5 @@ if (length(month) * 3 == length(year) + length(ranking) + length(points)) {
                         ranking,
                         points)
   head(ranking)
-}
-else stop("Data frame cannot be made. Columns have different lengths.")
+} else stop("Data frame cannot be made. Columns have different lengths.")
 
