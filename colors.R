@@ -20,10 +20,24 @@ b <- as.numeric(sapply(strsplit(rgb[3, ],
                        "[",
                        1))
 
-colorData <- data.frame("COLOR" = colorRaw$COLOR,
-                        "R" = r,
-                        "G" = g,
-                        "B" = b)
+RGBtoHEX <- function(rgb = c(0, 0, 0)) {
+   if(length(rgb) == 3) {
+      if (is.vector(rgb, mode = "numeric")) {
+         paste(c("#", sprintf("%-0.2X", rgb)), collapse = "")
+         }
+      else stop("Incorrect input!")
+      }
+   else stop("Incorrect input!")
+}
+
+hex <- sapply(as.list(rbind.data.frame(r, g, b)), RGBtoHEX)
+
+colorData <- data.frame("COLOR"   = colorRaw$COLOR,
+                        "R"       = r,
+                        "G"       = g,
+                        "B"       = b, 
+                        "HEX"     = hex,
+                        row.names = NULL)
 
 library(scatterplot3d)
 
